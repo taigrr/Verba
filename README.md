@@ -7,7 +7,7 @@
 
 Welcome to Verba: The Golden RAGtriever, an open-source application designed to offer an end-to-end, streamlined, and user-friendly interface for Retrieval-Augmented Generation (RAG) out of the box. In just a few easy steps, explore your datasets and extract insights with ease, either locally with Ollama and Huggingface or through LLM providers such as Anthrophic, Cohere, and OpenAI.
 
-```
+```sh
 pip install goldenverba
 ```
 
@@ -26,7 +26,7 @@ pip install goldenverba
 - [Quickstart: Deploy with pip](#how-to-deploy-with-pip)
 - [Quickstart: Build from Source](#how-to-build-from-source)
 - [Quickstart: Deploy with Docker](#how-to-install-verba-with-docker)
-- [💾 Verba Walkthrough](#️verba-walkthrough)
+- [💾 Verba Walkthrough](#verba-walkthrough)
 - [💖 Open Source Contribution](#open-source-contribution)
 - [🚩 Known Issues](#known-issues)
 - [❔FAQ](#faq)
@@ -39,7 +39,7 @@ Verba is a fully-customizable personal assistant utilizing [Retrieval Augmented 
 
 **Weaviate** is proud to offer this open-source project for the community. While we strive to address issues as fast as we can, please understand that it may not be maintained with the same rigor as production software. We welcome and encourage community contributions to help keep it running smoothly. Your support in fixing open issues quickly is greatly appreciated.
 
-### Watch our newest Verba video here:
+### Watch our newest Verba video here
 
 [![VIDEO LINK](https://github.com/weaviate/Verba/blob/main/img/thumbnail.png)](https://www.youtube.com/watch?v=swKKRdLBhas&t)
 
@@ -112,19 +112,19 @@ Verba is a fully-customizable personal assistant utilizing [Retrieval Augmented 
 
 ---
 
-# Getting Started with Verba
+## Getting Started with Verba
 
 You have three deployment options for Verba:
 
 - Install via pip
 
-```
+```sh
 pip install goldenverba
 ```
 
 - Build from Source
 
-```
+```sh
 git clone https://github.com/weaviate/Verba
 
 pip install -e .
@@ -134,7 +134,7 @@ pip install -e .
 
 **Prerequisites**: If you're not using Docker, ensure that you have `Python >=3.10.0` installed on your system.
 
-```
+```sh
 git clone https://github.com/weaviate/Verba
 
 docker compose --env-file <your-env-file> up -d --build
@@ -142,7 +142,7 @@ docker compose --env-file <your-env-file> up -d --build
 
 If you're unfamiliar with Python and Virtual Environments, please read the [python tutorial guidelines](./PYTHON_TUTORIAL.md).
 
-# API Keys
+## API Keys
 
 You can set all API keys in the Verba frontend, but to make your life easier, we can also prepare a `.env` file in which Verba will automatically look for the keys. Create a `.env` in the same directory you want to start Verba in. You can find an `.env.example` file in the [goldenverba](./goldenverba/.env.example) directory.
 
@@ -158,7 +158,7 @@ Below is a comprehensive list of the API keys and variables you may require:
 | OPENAI_API_KEY         | Your OpenAI Key                                            | Get Access to [OpenAI](https://openai.com/) Models                                |
 | OPENAI_BASE_URL        | URL to OpenAI instance                                     | Models                                                                            |
 | COHERE_API_KEY         | Your API Key                                               | Get Access to [Cohere](https://cohere.com/) Models                                |
-| OLLAMA_URL             | URL to your Ollama instance (e.g. http://localhost:11434 ) | Get Access to [Ollama](https://ollama.com/) Models                                |
+| OLLAMA_URL             | URL to your Ollama instance (e.g. [http://localhost:11434] ) | Get Access to [Ollama](https://ollama.com/) Models                                |
 | UNSTRUCTURED_API_KEY   | Your API Key                                               | Get Access to [Unstructured](https://docs.unstructured.io/welcome) Data Ingestion |
 | UNSTRUCTURED_API_URL   | URL to Unstructured Instance                               | Get Access to [Unstructured](https://docs.unstructured.io/welcome) Data Ingestion |
 | GITHUB_TOKEN           | Your GitHub Token                                          | Get Access to Data Ingestion via GitHub                                           |
@@ -170,7 +170,7 @@ Below is a comprehensive list of the API keys and variables you may require:
 
 ![API Keys in Verba](https://github.com/weaviate/Verba/blob/2.0.0/img/api_screen.png)
 
-## Weaviate
+### Weaviate
 
 Verba provides flexibility in connecting to Weaviate instances based on your needs. You have three options:
 
@@ -178,18 +178,19 @@ Verba provides flexibility in connecting to Weaviate instances based on your nee
 2. **Docker Deployment**: Choose this option when you're running Verba's Dockerfile.
 3. **Cloud Deployment**: Use an existing Weaviate instance hosted on WCD to run Verba
 
-**🌩️ Weaviate Cloud Deployment (WCD)**
+## 🌩️ Weaviate Cloud Deployment (WCD)
 
 If you prefer a cloud-based solution, Weaviate Cloud (WCD) offers a scalable, managed environment. Learn how to set up a cloud cluster and get the API keys by following the [Weaviate Cluster Setup Guide](https://weaviate.io/developers/wcs/guides/create-instance).
 
-**🐳 Docker Deployment**
+## 🐳 Docker Deployment
+
 Another local alternative is deploying Weaviate using Docker. For more details, follow the [How to install Verba with Docker](#how-to-install-verba-with-docker) section.
 
 ![Deployment in Verba](https://github.com/weaviate/Verba/blob/2.0.0/img/verba_deployment.png)
 
-## Ollama
+### Ollama
 
-Verba supports Ollama models. Download and Install Ollama on your device (https://ollama.com/download). Make sure to install your preferred LLM using `ollama run <model>`.
+Verba supports Ollama models. Download and Install Ollama on your device ([https://ollama.com/download]). Make sure to install your preferred LLM using `ollama run <model>`.
 
 Tested with `llama3`, `llama3:70b` and `mistral`. The bigger models generally perform better, but need more computational power.
 
@@ -197,32 +198,32 @@ Tested with `llama3`, `llama3:70b` and `mistral`. The bigger models generally pe
 
 You can verify that by running the following command
 
-```
+```sh
 ollama run llama3
 ```
 
-## Unstructured
+### Unstructured
 
 Verba supports importing documents through Unstructured IO (e.g plain text, .pdf, .csv, and more). To use them you need the `UNSTRUCTURED_API_KEY` and `UNSTRUCTURED_API_URL` environment variable. You can get it from [Unstructured](https://unstructured.io/)
 
 > UNSTRUCTURED_API_URL is set to `https://api.unstructured.io/general/v0/general` by default
 
-## OpenAI
+### OpenAI
 
 Verba supports OpenAI Models such as Ada, GPT3, and GPT4. To use them, you need to specify the `OPENAI_API_KEY` environment variable. You can get it from [OpenAI](https://openai.com/)
 
-You can also add a `OPENAI_BASE_URL` to use proxies such as LiteLLM (https://github.com/BerriAI/litellm)
+You can also add a `OPENAI_BASE_URL` to use proxies such as LiteLLM [https://github.com/BerriAI/litellm]
 
-```
+```sh
 OPENAI_BASE_URL=YOUR-OPENAI_BASE_URL
 ```
 
-## HuggingFace
+### HuggingFace
 
 If you want to use the HuggingFace Features, make sure to install the correct Verba package. It will install required packages to use the local embedding models.
 Please note that on startup, Verba will automatically download and install embedding models when used.
 
-```bash
+```sh
 pip install goldenverba[huggingface]
 
 or
@@ -232,103 +233,102 @@ pip install `.[huggingface]`
 
 > If you're using Docker, modify the Dockerfile accordingly
 
-# How to deploy with pip
+### How to deploy with pip
 
 `Python >=3.10.0`
 
 1. (Very Important) **Initialize a new Python Environment**
 
-```
+```sh
 python3 -m virtualenv venv
+source venv/bin/activate
 ```
 
-2. **Install Verba**
+1. **Install Verba**
 
-```
+```sh
 pip install goldenverba
 ```
 
-3. **Launch Verba**
+1. **Launch Verba**
 
-```
+```sh
 verba start
 ```
 
 > You can specify the --port and --host via flags
 
-4. **Access Verba**
+1. **Access Verba**
 
-```
-Visit localhost:8000
-```
+> Visit localhost:8000
 
-5. (Optional)**Create .env file and add environment variables**
+1. (Optional)**Create .env file and add environment variables**
 
-# How to build from Source
+## How to build from Source
 
 1. **Clone the Verba repos**
 
-```
+```sh
 git clone https://github.com/weaviate/Verba.git
 ```
 
-2. **Initialize a new Python Environment**
+1. **Initialize a new Python Environment**
 
-```
+```sh
 python3 -m virtualenv venv
 ```
 
-3. **Install Verba**
+1. **Install Verba**
 
-```
+```sh
 pip install -e .
 ```
 
-4. **Launch Verba**
+1. **Launch Verba**
 
-```
+```sh
 verba start
 ```
 
 > You can specify the --port and --host via flags
 
-5. **Access Verba**
+1. **Access Verba**
 
-```
+```sh
 Visit localhost:8000
 ```
 
-6. (Optional) **Create .env file and add environment variables**
+1. (Optional) **Create .env file and add environment variables**
 
-# How to install Verba with Docker
+## How to install Verba with Docker
 
 Docker is a set of platform-as-a-service products that use OS-level virtualization to deliver software in packages called containers. To get started with deploying Verba using Docker, follow the steps below. If you need more detailed instructions on Docker usage, check out the [Docker Curriculum](https://docker-curriculum.com/).
 
-0. **Clone the Verba repos**
+1. **Clone the Verba repos**
    Ensure you have Git installed on your system. Then, open a terminal or command prompt and run the following command to clone the Verba repository:
 
-```
+```sh
 git clone https://github.com/weaviate/Verba.git
 ```
 
 1. **Set necessary environment variables**
    Make sure to set your required environment variables in the `.env` file. You can read more about how to set them up in the [API Keys Section](#api-keys)
 
-2. **Adjust the docker-compose file**
+1. **Adjust the docker-compose file**
    You can use the `docker-compose.yml` to add required environment variables under the `verba` service and can also adjust the Weaviate Docker settings to enable Authentification or change other settings of your database instance. You can read more about the Weaviate configuration in our [docker-compose documentation](https://weaviate.io/developers/weaviate/installation/docker-compose)
 
 > Please make sure to only add environment variables that you really need.
 
-2. **Deploy using Docker**
+1. **Deploy using Docker**
    With Docker installed and the Verba repository cloned, navigate to the directory containing the Docker Compose file in your terminal or command prompt. Run the following command to start the Verba application in detached mode, which allows it to run in the background:
 
-```bash
+```sh
 
 docker compose up -d
 
 ```
 
-```bash
+```sh
 
 docker compose --env-file goldenverba/.env up -d --build
 
@@ -337,7 +337,7 @@ docker compose --env-file goldenverba/.env up -d --build
 This command will download the necessary Docker images, create containers, and start Verba.
 Remember, Docker must be installed on your system to use this method. For installation instructions and more details about Docker, visit the official Docker documentation.
 
-4. **Access Verba**
+1. **Access Verba**
 
 - You can access your local Weaviate instance at `localhost:8080`
 
@@ -345,7 +345,7 @@ Remember, Docker must be installed on your system to use this method. For instal
 
 If you want your Docker Instance to install a specific version of Verba you can edit the `Dockerfile` and change the installation line.
 
-```
+```dockerfile
 RUN pip install -e '.'
 ```
 
